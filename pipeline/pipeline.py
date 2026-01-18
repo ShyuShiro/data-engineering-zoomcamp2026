@@ -1,0 +1,14 @@
+import sys
+import pandas as pd
+
+print ('arguments',sys.argv)
+
+month = int(sys.argv[1])
+df = pd.DataFrame({"Day":[1,2],"Passengers":[3,4]})
+df['Month'] = month
+print(df.head())
+
+df.to_parquet(f"output_{month}.parquet")
+
+print ("Hello from pipeline")
+print("Month is %s"%month)
